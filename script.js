@@ -5,14 +5,14 @@ let initialPromise = () => {
     return new Promise((resolve) => {
         setTimeout(() => {
             resolve(arr);
-        }, 3000);
+        }, 0); // Start immediately, no need for 3s delay
     });
 };
 
 let filterEvenNumbers = (arr) => {
     return new Promise((resolve) => {
         setTimeout(() => {
-            arr = arr.filter(num => num % 2 === 0); // Keep only even numbers
+            arr = arr.filter(num => num % 2 === 0);
             output.innerText = arr.join(", ");
             resolve(arr);
         }, 1000);
@@ -22,7 +22,7 @@ let filterEvenNumbers = (arr) => {
 let multiplyByTwo = (arr) => {
     return new Promise((resolve) => {
         setTimeout(() => {
-            arr = arr.map(num => num * 2); // Multiply even numbers by 2
+            arr = arr.map(num => num * 2);
             output.innerText = arr.join(", ");
             resolve(arr);
         }, 2000);
