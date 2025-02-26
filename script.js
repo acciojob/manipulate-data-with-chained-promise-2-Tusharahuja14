@@ -17,7 +17,7 @@ let promise2 = () => {
     return new Promise((resolve) => {
         setTimeout(() => {
             arr = arr.map((elem) => elem * 2);
-            output.innerText = arr.join(", "); // Display the modified array
+            output.innerText = arr.join(","); // Display the modified array
             resolve(); 
         }, 2000); 
     });
