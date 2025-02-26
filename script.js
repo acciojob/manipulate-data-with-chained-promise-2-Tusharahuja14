@@ -8,7 +8,7 @@ let promise1 = () => {
             arr = arr.filter((elem) => elem % 2 === 0);
             output.innerText = arr.join(", "); // Display the filtered array
             resolve(); 
-        }, 1000); 
+        }); 
     });
 };
 
