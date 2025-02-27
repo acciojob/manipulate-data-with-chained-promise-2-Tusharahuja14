@@ -26,6 +26,6 @@ Firstpromise()
     .then(() => {
         setTimeout(() => {
             SecondPromise()
-        }, 1000);
+        });
     })
     .catch((err) => console.error(err));
