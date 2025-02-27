@@ -2,7 +2,7 @@ let arr = [1, 2, 3, 4];
 let output = document.getElementById("output");
 
 
-let promise1 = () => {
+let  Firstpromise = () => {
     return new Promise((resolve) => {
         setTimeout(() => {
             arr = arr.filter((elem) => elem % 2 === 0);
@@ -12,7 +12,7 @@ let promise1 = () => {
     });
 };
 
-let promise2 = () => {
+let  SecondPromise = () => {
     return new Promise((resolve) => {
         setTimeout(() => {
             arr = arr.map((elem) => elem * 2);
@@ -22,10 +22,10 @@ let promise2 = () => {
     });
 };
 
-promise1()
+Firstpromise()
     .then(() => {
         setTimeout(() => {
-            promise2()
+            SecondPromise()
         }, 1000);
     })
     .catch((err) => console.error(err));
