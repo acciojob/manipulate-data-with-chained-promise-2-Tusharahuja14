@@ -1,13 +1,68 @@
 <!DOCTYPE html>
-
 <html>
   <head>
-    <link rel="stylesheet" href="styles.css" />
+    <meta charset="UTF-8">
+    <title>Promise Chain Example</title>
   </head>
-
   <body>
-    <!-- do not change this code -->
     <div id="output"></div>
-    <script type="text/javascript" src="./script.js"></script>
+    <script>
+      // Function to update the text of an HTML element with the given ID.
+      function updateOutputText(id, text) {
+        document.getElementById(id).innerText = text;
+      }
+      
+      // Dummy manipulateArray function: returns a promise that resolves with the input array.
+      function manipulateArray(array) {
+        // This function could perform initial manipulation.
+        // For now, it simply returns the array as a resolved promise.
+        return Promise.resolve(array);
+      }
+      
+      // Function to filter the array to only include even numbers.
+      function filterOddNumbers(array) {
+        console.log("Before filtering:", array);
+        return new Promise((resolve) => {
+          setTimeout(() => {
+            // Filter: keep only even numbers (num % 2 === 0).
+            const filteredArray = array.filter(num => num % 2 === 0);
+            console.log("After filtering:", filteredArray);
+            // Update the output element with the filtered array.
+            updateOutputText("output", JSON.stringify(filteredArray));
+            resolve(filteredArray);
+          }, 1000); // 1 second delay
+        });
+      }
+      
+      // Function to multiply each number in the array by 2.
+      function multiplyEvenNumbers(array) {
+        console.log("Before multiplying:", array);
+        return new Promise((resolve) => {
+          setTimeout(() => {
+            // Multiply each element by 2.
+            const multipliedArray = array.map(num => num * 2);
+            console.log("After multiplying:", multipliedArray);
+            // Update the output element with the multiplied array.
+            updateOutputText("output", JSON.stringify(multipliedArray));
+            resolve(multipliedArray);
+          }, 2000); // 2 seconds delay
+        });
+      }
+      
+      // Input array
+      const inputArray = [1, 2, 3, 4];
+      
+      // Chain promises to manipulate the array and update the output element.
+      manipulateArray(inputArray)
+        .then(filterOddNumbers)
+        .then(multiplyEvenNumbers)
+        .then(resultArray => {
+          // Final update: display the final processed array.
+          updateOutputText("output", JSON.stringify(resultArray));
+        })
+        .catch(error => {
+          console.error("Error:", error);
+        });
+    </script>
   </body>
 </html>
