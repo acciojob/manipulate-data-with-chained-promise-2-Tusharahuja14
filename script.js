@@ -8,7 +8,7 @@ let promise1 = () => {
             arr = arr.filter((elem) => elem % 2 === 0);
             output.innerText = arr.join(", "); 
             resolve(); 
-        },1000); 
+        }, 1000); 
     });
 };
 
@@ -18,7 +18,7 @@ let promise2 = () => {
             arr = arr.map((elem) => elem * 2);
             output.innerText = arr.join(","); 
             resolve(); 
-        }, 3000); 
+        }, 2000); 
     });
 };
 
