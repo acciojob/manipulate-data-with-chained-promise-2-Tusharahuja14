@@ -18,7 +18,7 @@ let promise2 = () => {
             arr = arr.map((elem) => elem * 2);
             output.innerText = arr.join(","); 
             resolve(); 
-        }, 2000); 
+        }, 3000); 
     });
 };
 
