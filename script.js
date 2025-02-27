@@ -22,7 +22,10 @@ let promise2 = () => {
     });
 };
 
-
 promise1()
-    .then(() => promise2())
+    .then(() => {
+        setTimeout(() => {
+            promise2()
+        }, 1000);
+    })
     .catch((err) => console.error(err));
